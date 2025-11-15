@@ -1,0 +1,104 @@
+1)toggle string:
+#include <stdio.h>
+
+int main() {
+    char s[100000];
+    scanf("%s", s);   
+
+    for (int i = 0; s[i] != '\0'; i++) {
+
+       
+        if (s[i] >= 'a' && s[i] <= 'z') {
+            s[i] = s[i] - 'a' + 'A';
+        }
+
+        
+        else if (s[i] >= 'A' && s[i] <= 'Z') {
+            s[i] = s[i] - 'A' + 'a';
+        }
+    }
+
+    printf("%s", s);  
+
+    return 0;
+}
+
+
+2) roy and profile problem :
+#include <stdio.h>
+
+int main(){
+int L, N;
+    scanf("%d", &L);
+    scanf("%d", &N);
+
+    while (N--) {
+        int W, H;
+        scanf("%d %d", &W, &H);
+
+        if (W < L || H < L) {
+            printf("UPLOAD ANOTHER\n");
+        }
+        else if (W == H) {
+            printf("ACCEPTED\n");
+        }
+        else {
+            printf("CROP IT\n");
+        }
+    }
+
+    return 0;
+}
+
+3)zoos probelm:
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word[100000];
+    scanf("%s", word);
+
+    int znum = 0, onum = 0;
+
+    for (int i = 0; word[i] != '\0'; i++) {
+        if (word[i] == 'z')
+            znum++;
+        else if (word[i] == 'o')
+            onum++;
+    }
+
+    if (onum == 2 * znum)
+        printf("Yes");
+    else
+        printf("No");
+
+    return 0;
+}
+
+4) cost of ballon problem:
+#include <stdio.h>
+int main() {
+    int t;
+    scanf("%d", &t);
+    while (t--) {
+        int g, p;
+        scanf("%d %d", &g, &p);
+        int n;
+        scanf("%d", &n);
+        int count1 = 0;   
+        int count2 = 0;  
+        for (int i = 0; i < n; i++) {
+            int x, y;
+            scanf("%d %d", &x, &y);
+            count1 += x;
+            count2 += y;
+        }
+        int cheaper = (g < p) ? g : p;
+        int costlier = (g > p) ? g : p;
+        int moreSolved = (count1 > count2) ? count1 : count2;
+        int lessSolved = (count1 < count2) ? count1 : count2;
+        int totalCost = moreSolved * cheaper + lessSolved * costlier;
+        printf("%d\n", totalCost);
+    }
+    return 0;
+}
